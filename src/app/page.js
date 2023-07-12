@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="max-h-full h-full w-full relative overflow-hidden bg-gradient lg:h-screen lg:bg-none">
+      <section className="max-h-full w-full relative overflow-hidden bg-gradient lg:h-screen lg:bg-none">
         <Image
           src={`https://image.tmdb.org/t/p/original${featuredMovie?.backdrop_path}`}
           alt={featuredMovie?.title || "Movie title"}

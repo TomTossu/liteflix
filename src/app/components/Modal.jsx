@@ -28,12 +28,14 @@ export const Modal = ({ children }) => {
     }, [image, title])
 
     const handleClose = () => {
+        const formSubmitted = uploadState === UPLOAD_STATES.FORM_SUCCESS
+
         setShowModal(false)
         setProgressBar(0)
         setUploadState(UPLOAD_STATES.IDLE)
         setImage(null)
         setTitle('')
-        window.location.reload(true)
+        if (formSubmitted) window.location.reload()
     }
 
     const handleImageUpload = (e) => {
