@@ -4,10 +4,15 @@ Litebox coding challenge
 
 Demo: [Liteflix](https://liteflix-tomtossu.vercel.app/)
 
-Web:
+#### Screenshots
+  
+  Web Screenshot:
+  
 ![web](https://github.com/TomTossu/liteflix/assets/45078144/6dbe634c-f880-4ee6-8978-021e70247c05)
 
-Mobile:
+  
+  Mobile Screenshot:
+  
 ![mobile](https://github.com/TomTossu/liteflix/assets/45078144/5419217c-4035-4bb4-b44d-38e37572b481)
 
 ## Installing
