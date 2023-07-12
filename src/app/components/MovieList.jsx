@@ -2,36 +2,32 @@
 import React, { useEffect, useState } from 'react'
 import { FilterDropdown } from './FilterDropdown'
 import { MovieCard } from './MovieCard'
-// import { getMyMovies } from '@/movies/api'
+import { getMyMovies } from '@/movies/api'
 
 export const FILTERS = {
     POPULAR: "POPULARES",
     MY_MOVIES: "MIS PELICULAS"
 }
 
-export const MovieList = ({ popularMovies, myMovies, className }) => {
+export const MovieList = ({ popularMovies, className }) => {
     const [selectedFilter, setSelectedFilter] = useState(FILTERS.POPULAR)
-    const [movies, setMovies] = useState([])
+    const [myMovies, setMyMovies] = useState([])
 
     useEffect(() => {
-        switch (selectedFilter) {
-            case FILTERS.POPULAR:
-                setMovies(popularMovies)
-                break;
-            case FILTERS.MY_MOVIES:
-                setMovies(myMovies)
-                break;
-            default:
-                setMovies(popularMovies)
-                break;
-        }
-    }, [selectedFilter])
+        const getMovies = getMyMovies();
+        setMyMovies(getMovies)
+    }, [])
+
+    const movies = {
+        [FILTERS.POPULAR]: popularMovies,
+        [FILTERS.MY_MOVIES]: myMovies,
+    }
 
     return (
         <div className='overflow-hidden lg:w-[27rem]'>
-            <div className={`flex flex-col justify-start items-center h-full py-6 gap-4 overflow-y-auto overflow-x-hidden lg:h-[37rem] lg:w-[21rem] ${className}`}>
+            <div className={`flex flex-col justify-start items-center h-full gap-4 py-6 overflow-y-auto overflow-x-hidden lg:h-[37rem] lg:w-[21rem] ${className}`}>
                 <FilterDropdown selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
-                {movies?.map((movie, index) => (
+                {movies[selectedFilter]?.map((movie, index) => (
                     <MovieCard key={movie.id} movie={movie} selectedFilter={selectedFilter} index={index} />
                 ))
                 }

@@ -27,27 +27,26 @@ export const Menu = ({ children }) => {
             >{children}</button>
             <AnimatePresence>
                 {showMenu && (
-                    <div className='h-full w-full overflow-y-hidden overflow-x-hidden fixed inset-0 z-50 bg-gray-900/70 lg:overflow-y-auto'>
+                    <div className='h-full w-full fixed overflow-y-hidden overflow-x-hidden inset-0 z-50 bg-gray-900/70 lg:overflow-y-auto'>
                         <motion.div
                             initial={{ x: 40, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: 40, opacity: 0 }}
                             transition={{ ease: "easeInOut" }}
-
                             className={`h-full p-6 bg-secondary lg:w-[35%] lg:absolute lg:py-6 lg:px-12 lg:right-0 `} >
                             <header className='flex justify-between w-full gap-10'>
                                 <Image
-                                    src="/plus.svg"
+                                    src="/icons/plus.svg"
                                     alt="Close Menu"
                                     width={30}
                                     height={30}
-                                    className="rotate-45 cursor-pointer transition-transform ease-in-out hover:scale-125"
+                                    className="cursor-pointer rotate-45 transition-transform ease-in-out hover:scale-125"
                                     onClick={() => setShowMenu(false)}
                                 />
                                 <div className='flex justify-center w-full lg:justify-end'>
                                     <button className='hidden lg:flex'>
                                         <Image
-                                            src="/notification.svg"
+                                            src="/icons/notification.svg"
                                             alt='notification icon'
                                             width={24}
                                             height={24}
@@ -55,7 +54,7 @@ export const Menu = ({ children }) => {
                                         />
                                     </button>
                                     <Image
-                                        src="/logo.svg"
+                                        src="/icons/logo.svg"
                                         alt="Liteflix"
                                         width={98}
                                         height={28}
@@ -63,7 +62,7 @@ export const Menu = ({ children }) => {
                                     />
                                 </div>
                                 <button>
-                                    <Image src="/avatar.svg" alt="Profile" width={45} height={45} className='transition-transform ease-in-out hover:scale-125' />
+                                    <Image src="/icons/avatar.svg" alt="Profile" width={45} height={45} className='transition-transform ease-in-out hover:scale-125' />
                                 </button>
                             </header>
                             <nav className='py-14 px-1'>
@@ -78,7 +77,7 @@ export const Menu = ({ children }) => {
                                                 {obj.modalNav ? (
                                                     <Modal>
                                                         <Image
-                                                            src="/plus.svg"
+                                                            src="/icons/plus.svg"
                                                             alt="add movie"
                                                             width={14}
                                                             height={14}
@@ -89,7 +88,7 @@ export const Menu = ({ children }) => {
                                                 ) : (
                                                     <p className="relative group">
                                                         <Link href='/'>{obj.label}</Link>
-                                                        <span className="absolute -bottom-1 left-0 w-0 h-1 rounded-full bg-primary transition-all group-hover:w-full"></span>
+                                                        <span className="w-0 h-1 absolute -bottom-1 left-0 rounded-full bg-primary transition-all group-hover:w-full"></span>
                                                     </p>
                                                 )}
                                             </>

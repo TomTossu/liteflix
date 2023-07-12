@@ -9,28 +9,28 @@ export const Navbar = () => {
             <header className="flex justify-between lg:hidden">
                 <Menu>
                     <Image
-                        src="/menu.svg"
+                        src="/icons/menu.svg"
                         alt="open menu"
                         width={26}
                         height={26}
-                        className="scale-x-[-1] w-auto h-auto"
+                        className="w-auto h-auto scale-x-[-1]"
                     />
                 </Menu>
                 <Image
-                    src="/logo.svg"
+                    src="/icons/logo.svg"
                     alt="Liteflix"
                     width={98}
                     height={28}
                     className="w-auto h-auto"
                 />
                 <button>
-                    <Image src="/avatar.svg" alt="Profile" width={36} height={36} />
+                    <Image src="/icons/avatar.svg" alt="Profile" width={36} height={36} />
                 </button>
             </header>
             <header className="hidden lg:flex lg:justify-between lg:h-10">
-                <div className='flex flex-row gap-16 items-center'>
+                <div className='flex flex-row items-center gap-16'>
                     <Image
-                        src="/logo.svg"
+                        src="/icons/logo.svg"
                         alt="Liteflix"
                         width={98}
                         height={28}
@@ -38,7 +38,7 @@ export const Navbar = () => {
                     />
                     <Modal>
                         <Image
-                            src="/plus.svg"
+                            src="/icons/plus.svg"
                             alt="add movie"
                             width={14}
                             height={14}
@@ -47,10 +47,10 @@ export const Navbar = () => {
                         <span>AGREGAR PELICULA</span>
                     </Modal>
                 </div>
-                <div className='flex flex-row gap-12 items-center'>
+                <div className='flex flex-row items-center gap-12'>
                     <Menu>
                         <Image
-                            src="/menu.svg"
+                            src="/icons/menu.svg"
                             alt="open menu"
                             width={26}
                             height={26}
@@ -59,7 +59,7 @@ export const Navbar = () => {
                     </Menu>
                     <button>
                         <Image
-                            src="/notification.svg"
+                            src="/icons/notification.svg"
                             alt='notification icon'
                             width={26}
                             height={26}
@@ -67,7 +67,7 @@ export const Navbar = () => {
                         />
                     </button>
                     <button>
-                        <Image src="/avatar.svg" alt="Profile" width={36} height={36} className='transition-transform ease-in-out hover:scale-125' />
+                        <Image src="/icons/avatar.svg" alt="Profile" width={36} height={36} className='transition-transform ease-in-out hover:scale-125' />
                     </button>
                 </div>
             </header>

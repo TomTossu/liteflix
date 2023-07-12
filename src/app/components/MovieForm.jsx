@@ -8,21 +8,21 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
         <>
             {uploadState === UPLOAD_STATES.FORM_SUCCESS ? (
                 <Image
-                    src='/logo.svg'
+                    src='/icons/logo.svg'
                     alt='logo'
                     width={113}
                     height={34}
                     className='self-center'
                 />
             ) : (
-                <h3 className='text-2xl lg:text-xl text-center text-primary mb-12 mt-24 lg:mt-0'>Agregar Pelicula</h3>
+                <h3 className='text-2xl text-center text-primary mb-12 mt-24 lg:text-xl lg:mt-0'>Agregar Pelicula</h3>
             )}
 
             <form
                 onSubmit={(e) => handleSubmit(e)}
                 className='flex flex-col items-center lg:gap-2'>
                 {uploadState === UPLOAD_STATES.IDLE && (
-                    <label htmlFor='file_input' className='flex items-center relative justify-center mb-12 gap-4 w-full h-20 lg:h-24 border-2 border-dashed cursor-pointer'>
+                    <label htmlFor='file_input' className='flex items-center justify-center w-full h-20 relative gap-4 mb-12 border-2 border-dashed cursor-pointer lg:h-24'>
                         <p>
                             <b>Agregá un archivo</b>
                             <span className='hidden lg:inline'>O ARRASTRALO Y SOLTALO AQUÍ</span>
@@ -31,7 +31,7 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                             id='file_input'
                             type='file'
                             accept='image/*'
-                            className='absolute w-full h-full cursor-pointer opacity-0'
+                            className='w-full h-full absolute opacity-0 cursor-pointer'
                             name='file'
                             placeholder='Agregá un archivo'
                             onChange={(e) => handleImageUpload(e)}
@@ -41,7 +41,7 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                 {uploadState === UPLOAD_STATES.IMAGE_UPLOAD && (
                     <div className='flex flex-col w-full gap-4 mb-12'>
                         <p className='text-left text-sm'>{`Cargando: ${progressBar}%`}</p>
-                        <div className='bg-primary h-2' style={{ width: `${progressBar}%` }}>
+                        <div className='h-2 bg-primary' style={{ width: `${progressBar}%` }}>
                         </div>
                         <button type="button" onClick={() => handleClose()} className='text-right'>Cancelar</button>
                     </div>
@@ -49,7 +49,7 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                 {uploadState === UPLOAD_STATES.ERROR && (
                     <div className='flex flex-col w-full gap-4 mb-12'>
                         <p className='text-left text-sm'>Error no se pudo cargar la pelicula</p>
-                        <div className='bg-red-500 h-2' style={{ width: `${progressBar}%` }}>
+                        <div className='h-2 bg-red-500' style={{ width: `${progressBar}%` }}>
                         </div>
                         <button type="button" className='text-right'>Reintentar</button>
                     </div>
@@ -57,7 +57,7 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                 {uploadState === UPLOAD_STATES.IMAGE_SUCCESS && (
                     <div className='flex flex-col w-full gap-4 mb-12'>
                         <p className='text-left text-sm'>100% Cargado</p>
-                        <div className='bg-primary h-2' style={{ width: `${progressBar}%` }}>
+                        <div className='h-2 bg-primary' style={{ width: `${progressBar}%` }}>
                         </div>
                         <span className='text-right'>¡Listo!</span>
                     </div>
@@ -69,13 +69,13 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                             id='title'
                             type='text'
                             placeholder='Título'
-                            className='text-center border-b-2 bg-transparent w-60 mb-24 lg:mb-12 focus:outline-none'
+                            className='text-center w-60 mb-24 border-b-2 bg-transparent lg:mb-12 focus:outline-none'
                             onChange={(e) => handleTitleChange(e)}
                         />
-                        <button type='submit' className={`w-60 mb-6 bg-white text-secondary text-lg py-3 ${!validForm && 'opacity-40 cursor-not-allowed'}`} disabled={!validForm}>
+                        <button type='submit' className={`text-lg text-secondary w-60 mb-6 py-3 bg-white ${!validForm && 'opacity-40 cursor-not-allowed'}`} disabled={!validForm}>
                             Subir Pelicula
                         </button>
-                        <button type="button" onClick={() => handleClose()} className={`lg:hidden w-60 mb-6 border border-white/50 bg-transparent text-lg py-3 ${!validForm && 'opacity-40 cursor-not-allowed'}`}>
+                        <button type="button" onClick={() => handleClose()} className={`text-lg w-60 mb-6 border border-white/50 bg-transparent py-3 ${!validForm && 'opacity-40 cursor-not-allowed'} lg:hidden`}>
                             Salir
                         </button>
                     </>
@@ -86,7 +86,7 @@ export const MovieForm = ({ uploadState, progressBar, validForm, title, handleIm
                             <h3 className='text-2xl font-bold mb-6'>¡Felicitaciones!</h3>
                             <p className='text-xl'>{`${title} fue correctamente subida.`}</p>
                         </div>
-                        <button type="button" onClick={() => handleClose()} className='w-60 mb-6 bg-white text-secondary text-lg py-3'>
+                        <button type="button" onClick={() => handleClose()} className='text-lg text-secondary w-60 mb-6 py-3 bg-white'>
                             <Link href='/'>Ir a Home</Link>
                         </button>
                     </>

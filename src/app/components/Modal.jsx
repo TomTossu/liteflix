@@ -85,15 +85,15 @@ export const Modal = ({ children }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className='flex justify-center items-center fixed inset-0 z-20 bg-gray-900/70'>
-                        <div className='relative w-full lg:min-w-[700px] mx-auto max-w-3xl h-full lg:h-fit'>
+                        <div className='w-full h-full max-w-3xl relative mx-auto lg:min-w-[700px] lg:h-fit'>
                             <div className="flex flex-col w-full h-full relative bg-secondary shadow-lg p-6 lg:px-16 lg:py-12">
                                 <Link href="/">
                                     <button
-                                        className="hidden lg:flex absolute top-4 right-4"
+                                        className="hidden absolute top-4 right-4 lg:flex"
                                         onClick={() => handleClose()}
                                     >
                                         <Image
-                                            src="/plus.svg"
+                                            src="/icons/plus.svg"
                                             alt="Close Modal"
                                             width={24}
                                             height={24}
