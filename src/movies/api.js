@@ -1,10 +1,10 @@
+import { API_NOW_PLAYING_URL, API_POPULAR_URL } from "@/constants/constants";
 import { convertImage } from "@/utils/utils";
 
 export const getNowPlaying = async () => {
+  const apiKey = process.env.REACT_APP_API_KEY;
   try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20"
-    );
+    const response = await fetch(`${API_NOW_PLAYING_URL}?api_key=${apiKey}`);
 
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -22,10 +22,10 @@ export const getNowPlaying = async () => {
 };
 
 export const getPopularMovies = async () => {
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20"
-    );
+    const response = await fetch(`${API_POPULAR_URL}?api_key=${apiKey}`);
 
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -59,6 +59,8 @@ export const addMovie = async ({ image, title }) => {
 
   moviesArr.push(movie);
   localStorage.setItem("myMovies", JSON.stringify(moviesArr));
+
+  return moviesArr;
 };
 
 export const getMyMovies = () => {

@@ -5,7 +5,7 @@ import { Modal } from './Modal'
 
 export const Navbar = () => {
     return (
-        <section className="flex flex-col justify-between h-full w-full max-w-7xl mx-auto px-6 pt-6 pb-16 lg:py-4">
+        <section className="flex flex-col justify-between h-full w-full max-w-7xl mx-auto pb-16 lg:py-4 lg:px-6">
             <header className="flex justify-between lg:hidden">
                 <Menu>
                     <Image

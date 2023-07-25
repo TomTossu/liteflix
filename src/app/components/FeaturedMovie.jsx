@@ -17,7 +17,7 @@ export const FeaturedMovie = ({ featuredMovie }) => {
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: '0%', opacity: 1 }}
                         transition={{ delay: 0.3, ease: "easeIn" }}
-                        className='text-primary text-7xl text-center lg:text-[120px] lg:text-left'>{featuredMovie.title}</motion.h1>
+                        className='text-primary text-7xl text-center lg:text-[120px] lg:text-left'>{featuredMovie?.title}</motion.h1>
                 </article>
                 <div className='flex flex-col gap-6 lg:flex-row'>
                     <motion.button

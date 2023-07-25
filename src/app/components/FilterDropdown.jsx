@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { FILTERS } from './MovieList'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FILTERS } from '@/constants/constants'
 
 export const FilterDropdown = ({ selectedFilter, setSelectedFilter }) => {
     const [isOpen, setIsOpen] = useState(false)

@@ -3,6 +3,7 @@ import { Navbar } from "./components/Navbar";
 import Image from "next/image";
 import { FeaturedMovie } from "./components/FeaturedMovie";
 import { MovieList } from "./components/MovieList";
+import { IMAGE_URL } from "@/constants/constants";
 
 export default async function Home() {
   const featuredMovie = await getNowPlaying();
@@ -12,7 +13,7 @@ export default async function Home() {
     <main>
       <section className="max-h-full w-full relative overflow-hidden bg-gradient lg:h-screen lg:bg-none">
         <Image
-          src={`https://image.tmdb.org/t/p/original${featuredMovie?.backdrop_path}`}
+          src={`${IMAGE_URL}${featuredMovie?.backdrop_path}`}
           alt={featuredMovie?.title || "Movie title"}
           fill
           priority

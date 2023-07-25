@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { MovieForm } from './MovieForm'
 import { addMovie } from '@/movies/api'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useMovies } from '@/store'
 
 export const UPLOAD_STATES = {
     IDLE: 'idle',
@@ -20,6 +21,7 @@ export const Modal = ({ children }) => {
     const [uploadState, setUploadState] = useState(UPLOAD_STATES.IDLE)
     const [image, setImage] = useState(null)
     const [title, setTitle] = useState('')
+    const setMyMovies = useMovies(state => state.setMyMovies)
 
     const [validForm, setValidForm] = useState(false)
 
@@ -28,14 +30,11 @@ export const Modal = ({ children }) => {
     }, [image, title])
 
     const handleClose = () => {
-        const formSubmitted = uploadState === UPLOAD_STATES.FORM_SUCCESS
-
         setShowModal(false)
         setProgressBar(0)
         setUploadState(UPLOAD_STATES.IDLE)
         setImage(null)
         setTitle('')
-        if (formSubmitted) window.location.reload()
     }
 
     const handleImageUpload = (e) => {
@@ -68,7 +67,9 @@ export const Modal = ({ children }) => {
         e.preventDefault();
 
         if (validForm) {
-            addMovie({ image, title });
+            addMovie({ image, title }).then((newMovies) => {
+                setMyMovies(newMovies)
+            });
             setUploadState(UPLOAD_STATES.FORM_SUCCESS)
         }
     }
